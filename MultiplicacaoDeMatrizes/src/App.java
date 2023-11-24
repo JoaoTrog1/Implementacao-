@@ -6,15 +6,15 @@ public class App {
         double[][] A, B, C;
 
         System.out.println("Informe a quantidade de linhas(m) da primeira matriz(A):");
-        m = (int)t.nextDouble();
+        m = t.nextInt();
         System.out.println("Informe a quantidade de clunas(n) da primeira matriz(A):");
-        n = (int)t.nextDouble();
+        n = t.nextInt();
         A = new double[m][n];
         
         System.out.println("Informe a quantidade de linhas(p) da segunda matriz(B):");
-        p = (int)t.nextDouble();
+        p = t.nextInt();
         System.out.println("Informe a quantidade de clunas(q) da segunda matriz(B):");
-        q = (int)t.nextDouble();
+        q = t.nextInt();
         B = new double[p][q];
 
         if (n == p) {
@@ -33,12 +33,18 @@ public class App {
                     B[i][j] = t.nextDouble();
                 }
             }
+            t.close();
 
             //imprime a matriz A
             System.out.println("Matiz A");
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    System.out.print(A[i][j] + " ");
+                    if (A[i][j] == (int)A[i][j]) {// Verificando se o decimal é 0
+                        System.out.print((int)A[i][j] + " "); // Removendo o 0
+                    } else {
+                        System.out.print(A[i][j] + " ");
+                    }
+                    
                 }
                 System.out.println();
             }
@@ -47,7 +53,11 @@ public class App {
             System.out.println("Matiz B");
             for (int i = 0; i < p; i++) {
                 for (int j = 0; j < q; j++) {
-                    System.out.print(B[i][j] + " ");
+                    if (B[i][j] == (int)B[i][j]) {// Verificando se o decimal é 0
+                        System.out.print((int)B[i][j] + " "); // Removendo o 0
+                    } else {
+                        System.out.print(B[i][j] + " ");
+                    }
                 }
                 System.out.println();
             }
@@ -59,7 +69,11 @@ public class App {
                     for (int k = 0; k < n; k++) {
                         C[i][j] += A[i][k] * B[k][j];
                     }
-                    System.out.print(C[i][j] + " ");
+                    if (C[i][j] == (int)C[i][j]) {// Verificando se o decimal é 0
+                        System.out.print((int)C[i][j] + " "); // Removendo o 0
+                    } else {
+                        System.out.print(C[i][j] + " ");
+                    }
                 }
                 System.out.println();
             }
